@@ -3,14 +3,14 @@ import Graph as g
 import random as rand
 
 # A helper so that formatting is consistent
-def ExhibitPrint(stringToPrint, label = None):
+def ExhibitPrint(thingToPrint, label = None):
     print()
     if label:
         print(label)
-    print(stringToPrint)
+    print(thingToPrint)
 
 # Arbitrary indices
-arbitraryIndices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
+arbitraryIndices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']
 
 # Constructing with the arbitrary vertices
 exampleGraphDirected = g.Graph(arbitraryIndices, initialWeight = 1)
@@ -39,7 +39,7 @@ for i in range(1000 * len(arbitraryIndices)):
     endVert = rand.choice(arbitraryIndices)
     # Give it a random weight from [1,50]
         # For readers unfamiliar with the notation, using brackets means the range of possible values includes the start and end values
-    exampleGraphDirected.AssignEdgeWeight(startVert, endVert, rand.randint(1,50))
+    exampleGraphDirected.AssignEdgeWeight(startVert, endVert, rand.randint(1,500))
 
 ExhibitPrint(exampleGraphDirected, label = "Assigned random weights to directed graph")
 

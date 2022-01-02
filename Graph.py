@@ -38,6 +38,11 @@ class Graph:
         maxWeight = np.max(numpyAdjMat)
         foundIndicator = maxWeight + 1
 
+        # Don't try anything if there's a negative edge weight. That doesn't work for Dijkstra
+        if np.min(numpyAdjMat) < 0:
+            # Ideally I'd check this at the beginning for efficiency, but for clean code I'm putting it here
+            raise ValueError("Negative edge weight present in graph. Dijkstra's algorithm only works with non-negative edge weights.")
+
         # Storage arrays
         shortestFound = np.zeros(numVertices) # 0 for false, maxWeight + 1 for true
         shortestDistanceToVertex = np.full(numVertices, np.inf) # Initialize all to infinity (except the first but stay tuned)
